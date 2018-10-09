@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sl-django-issue-tracker.herokuapp.com']
+ALLOWED_HOSTS = ['sl-django-issue-tracker.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -94,7 +94,8 @@ if development:
     }
 else:
     DATABASES = {
-       'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    #    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse('postgres://qnpdgpfemupjzn:d2a6d093553e5cb7f59f341b04b71362eeff2a4cbabf30a5377d88826715802d@ec2-54-75-251-84.eu-west-1.compute.amazonaws.com:5432/d2rboa7hv2o1l4')
     }
 
 
