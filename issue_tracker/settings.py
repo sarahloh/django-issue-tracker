@@ -13,9 +13,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import dj_database_url
 
-
-#development = True
-development = False
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else:
+    development = False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -93,8 +94,7 @@ if development:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-        # 'default': dj_database_url.parse('postgres://qnpdgpfemupjzn:d2a6d093553e5cb7f59f341b04b71362eeff2a4cbabf30a5377d88826715802d@ec2-54-75-251-84.eu-west-1.compute.amazonaws.com:5432/d2rboa7hv2o1l4')
+       'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
 
