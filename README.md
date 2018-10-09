@@ -1,5 +1,7 @@
 # Django Issue Tracker
 
+[![Build Status](https://travis-ci.org/sarahloh/django-issue-tracker.svg?branch=master)](https://travis-ci.org/sarahloh/django-issue-tracker)
+
 This Issue Tracker allows users to create tickets, comment on tickets and show the status of the ticket.
 
 There are two kinds of issues - bugs and features.
@@ -33,11 +35,24 @@ In addition, you may also use this section to discuss plans for additional featu
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+**Backend**
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+- [Python3](https://www.python.org)
+- [pip3](https://pip.pypa.io/en/stable/)
+- [Django](https://www.djangoproject.com)
+- [Stripe](https://www.djangoproject.com)
 
+**Frontend**
+
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
+- [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
+- [Bootstrap v4.1.1](https://getbootstrap.com/docs/4.1/)
+
+**Version Control**
+
+- [Git](https://git-scm.com)
+- [Github](https://github.com)
 
 ## Testing
 
