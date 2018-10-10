@@ -13,11 +13,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import dj_database_url
 
-if os.environ.get('DEVELOPMENT'):
-    development = True
-else:
-    development = False
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
+DEBUG = False
 
 ALLOWED_HOSTS = ['sl-django-issue-tracker.herokuapp.com', '127.0.0.1']
 
@@ -85,17 +80,17 @@ WSGI_APPLICATION = 'issue_tracker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-if development:
+if "DATABASE_URL" in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    print("No DATABASE_URL environment variable, using sqlite3 db.")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
-    }
-else:
-    DATABASES = {
-    #    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-        'default': dj_database_url.parse('postgres://qnpdgpfemupjzn:d2a6d093553e5cb7f59f341b04b71362eeff2a4cbabf30a5377d88826715802d@ec2-54-75-251-84.eu-west-1.compute.amazonaws.com:5432/d2rboa7hv2o1l4')
     }
 
 
