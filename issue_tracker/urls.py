@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 from accounts import urls as urls_accounts
-from home import urls as urls_home
 from home.views import index
 from django.views import static
 from .settings import MEDIA_ROOT
